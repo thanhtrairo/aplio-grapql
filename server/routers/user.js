@@ -12,8 +12,18 @@ const mongoDataMethods = {
     const newUser = new User(args);
     return await newUser.save();
   },
+  updateUser: async (args) => {
+    const existingUser = await User.findById(args.id);
+    if (existingUser) {
+      existingUser.age = args.age;
+      existingUser.name = args.name;
+      existingUser.email = args.email;
+    }
+    await existingUser.save();
+    return existingUser;
+  },
   createVacation: async (args) => {
-    const newVacation = new vacation(args);
+    const newVacation = new Vacation(args);
     return await newVacation.save();
   },
 };

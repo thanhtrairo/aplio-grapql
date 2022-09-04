@@ -32,6 +32,7 @@ const typeDefs = gql`
       isAdmin: Boolean
     ): User
     updateUser(
+      id: ID!
       name: String
       age: String
       email: String

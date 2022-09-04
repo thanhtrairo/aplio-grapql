@@ -21,6 +21,10 @@ const resolvers = {
   Mutation: {
     createUser: async (parent, args, { mongoDataMethods }) =>
       await mongoDataMethods.createUser(args),
+    updateUser: async (parent, args, { mongoDataMethods }) => {
+      console.log(args);
+      return await mongoDataMethods.updateUser(args);
+    },
     createVacation: async (parent, args, { mongoDataMethods }) =>
       await mongoDataMethods.createVacation(args),
   },
